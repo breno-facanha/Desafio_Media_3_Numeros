@@ -21,6 +21,10 @@
             align-items: center;
             padding-left: 15px;
         }
+
+        label{
+            margin: 0px;
+        }
         .container-notas{
             padding: 40px;
             display: flex;
@@ -44,6 +48,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
+            margin-top: 20px;
         }
 
 
@@ -58,7 +64,25 @@
             border-radius: 7px;
             padding-left: 5px;
             height: 20px;
+            width: 200px;
+            font-size: 12px;
         }
+
+        .avaliacao{
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .avaliacao label{
+            margin-left: 5px;
+        }
+
+        button{
+            margin-top: 15px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -69,12 +93,20 @@
         <h1>Desafio JS</h1>
 
         <h3>Calcular média do Aluno</h3>
-        <label for="nota1">Avaliação 1</label>
-        <input type="text" name="nota1" id="nota1" placeholder="Nota1">
-        <label for="nota2">Avaliação 2</label>
-        <input type="text" name="nota2" id="nota2" placeholder="Nota2">
-        <label for="nota3">Avaliação 3</label>
-        <input type="text" name="nota3" id="nota3" placeholder="Nota3">
+        <div class="avaliacao">
+            <label for="nota1">Avaliação 1</label>
+            <input type="text" name="nota1" id="nota1" placeholder="Nota1">
+        </div>
+
+        <div class="avaliacao">
+            <label for="nota2">Avaliação 2</label>
+            <input type="text" name="nota2" id="nota2" placeholder="Nota2">
+        </div>
+        <div class="avaliacao">
+            <label for="nota3">Avaliação 3</label>
+            <input type="text" name="nota3" id="nota3" placeholder="Nota3">
+        </div>
+
         <button class="btn btn-primary" onclick="calcularMedia()">Calcular</button>
     </div>
 
