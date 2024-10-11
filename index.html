@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Desafio_JS</title>
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header{
+            height: 100px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+        }
+        .container-notas{
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            border: 1px solid #ccc;
+        }
+
+        .container-resultados{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container-resultados li{
+            list-style-type: none;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        img{
+            width: 150px;
+        }
+
+        input{
+            outline: none;
+            border: 1px solid #CCC;
+            border-radius: 7px;
+            padding-left: 5px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo-digital.png" alt="">
+    </header>
+    <div class="container-notas">
+        <h1>Desafio JS</h1>
+
+        <h3>Calcular média do Aluno</h3>
+        <label for="nota1">Avaliação 1</label>
+        <input type="text" name="nota1" id="nota1" placeholder="Nota1">
+        <label for="nota2">Avaliação 2</label>
+        <input type="text" name="nota2" id="nota2" placeholder="Nota2">
+        <label for="nota3">Avaliação 3</label>
+        <input type="text" name="nota3" id="nota3" placeholder="Nota3">
+        <button class="btn btn-primary" onclick="calcularMedia()">Calcular</button>
+    </div>
+
+    <div class="container-resultados">
+        <ul>
+            <li id="aprovado"></li>
+            <li id="repescagem"></li>
+            <li id="reprovado"></li>
+        </ul>
+    </div>
+
+    <script>
+        
+        function calcularMedia() {
+            const nota1 = parseFloat(document.getElementById("nota1").value)
+            const nota2 = parseFloat(document.getElementById("nota2").value)
+            const nota3 = parseFloat(document.getElementById("nota3").value)
+            const valorDaSoma = nota1 + nota2 + nota3
+            const valorDaMedia = valorDaSoma / 3
+            const valorDaMediaEditado = valorDaMedia.toFixed(2)
+            console.log(valorDaMedia.toFixed(2))
+
+            document.getElementById("nota1").value = ''
+            document.getElementById("nota2").value = ''
+            document.getElementById("nota3").value = ''
+
+            if(valorDaMedia >= 7){
+                document.getElementById("aprovado").innerHTML = `<h5>Média do aluno: ${valorDaMediaEditado}  </h5> <p> aprovado ! </p>`
+            } else if (valorDaMedia >=5){
+                document.getElementById("aprovado").innerHTML = `<h5>Média do aluno: ${valorDaMediaEditado}  </h5> <p> repescagem ! </p>`
+            }else{
+                document.getElementById("aprovado").innerHTML = `<h5>Média do aluno: ${valorDaMediaEditado}  </h5> <p> reprovado ! </p>`
+            }
+        }
+    </script>
+</body>
+</html>
